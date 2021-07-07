@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>Камеры и смотровые порты</title>
-  <meta name="generator" content="Adobe RoboHelp 2019" />
-  <link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
-  <meta name="rh-authors" content="Mark Alexander" />
-  <meta name="topic-comment" content="Reference section for Cameras And View Ports" />
-  <meta name="rh-index-keywords" content="" />
-  <meta name="search-keywords" content="Cameras And View Ports,viewports,view ports,views,camera,cameras" />
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css"/>
+  <meta name="rh-authors" content="Mark Alexander"/>
+  <meta name="topic-comment" content="Reference section for Cameras And View Ports"/>
+  <meta name="rh-index-keywords" content=""/>
+  <meta name="search-keywords" content="Cameras And View Ports,viewports,view ports,views,camera,cameras"/>
 </head>
 <body>
   <!--<div class="body-scroll" style="top: 150px;">-->
@@ -26,20 +26,20 @@
     <li><b>Вид</b>: То, что видит камера, в зависимости от положения, проекции и вращения камеры.</li>
     <li><b>Порт просмотра</b>: область экрана, где будет отображаться вид камеры.</li>
   </ul>
-  <p><img alt="Camera illustration" class="center" src="../../../../assets/Images/Scripting_Reference/GML/Reference/Cameras_Display/Camera_Example.png">Если вы добавляете камеры через <b>редактор помещений</b>, то вы можете получить значение <i>ID камеры</i> с помощью переменной <tt>view_camera</tt>. Затем вы можете управлять видом с помощью функций, описанных ниже, и даже можете уничтожить камеры по умолчанию, если это необходимо, хотя вам придется назначить новую камеру виду, иначе вы получите некоторые
+  <p><img alt="Camera illustration" class="center" src="../../../../assets/Images/Scripting_Reference/GML/Reference/Cameras_Display/Camera_Example.png"/>Если вы добавляете камеры через <b>редактор помещений</b>, то вы можете получить значение <i>ID камеры</i> с помощью переменной <tt>view_camera</tt>. Затем вы можете управлять видом с помощью функций, описанных ниже, и даже можете уничтожить камеры по умолчанию, если это необходимо, хотя вам придется назначить новую камеру виду, иначе вы получите некоторые
     непредсказуемое поведение. Камеры, добавленные в порт вида в редакторе комнат, являются <b>глобальными</b>, то есть они создаются один раз при запуске игры, а затем, когда вы входите в каждую комнату, они устанавливаются на значения, заданные в редакторе комнат,
     Поэтому если вы уничтожите камеру по умолчанию в <i>любой</i> комнате, она перестанет существовать для <i>всех комнат</i>.</p>
   <p>Следует отметить, что общая площадь ограничивающей области для <i>всех активных портов обзора в первой комнате игры</i> определяет <b>размер фонового холста</b> (или размер окна для <span class="notranslate">macOS</span>, <span class="notranslate">Ubuntu</span><span class="notranslate">(Linux</span>) и Windows), и все области, не покрытые портами обзора, будут рисоваться по умолчанию с использованием цвета окна, как показано на изображении ниже.
    <span class="notranslate">Windows</span>), и все области, не покрытые портом обзора, по умолчанию будут рисоваться с использованием цвета окна, как показано на рисунке ниже:</p>
-  <p><img alt="View Port Canvas" class="center" src="../../../../assets/Images/Scripting_Reference/GML/Reference/Cameras_Display/viewport_canvas.png" /></p>
+  <p><img alt="View Port Canvas" class="center" src="../../../../assets/Images/Scripting_Reference/GML/Reference/Cameras_Display/viewport_canvas.png"/></p>
   <p class="note"><b>ПРИМЕЧАНИЕ</b>: По умолчанию для отображения цвета необходимо выбрать &quot;Clear Display Buffer&quot; в редакторе комнаты, а установить цвет можно только с помощью функции window_set_colour <tt>()</tt>. Если вы не используете эту функцию, по умолчанию будет установлен
     черным.</p>
   <p>Следует быть осторожным при использовании нескольких камер, поскольку событие draw для всех экземпляров вызывается один раз для каждого видимого вида, поэтому если в одной комнате активны три вида камер, событие draw будет выполняться три раза на каждом шаге (по сути, выполняя три раза одну и ту же работу), что может вызвать замедление, если игра большая и сложная.
     что может стать причиной замедления, если игра большая или сложная. Переменная <tt>view_current</tt> может быть использована для ограничения вызовов рисования, проверяя, какой вид рисуется, и рисуя только те элементы, которые специфичны для
     для данного порта представления. Также будьте осторожны при создании собственных камер, так как если вы создадите одну камеру в комнате и не удалите ее с помощью функции <a href="camera_destroy.htm"><tt>camera_destroy()</tt></a> вы можете получить утечку памяти.</p>
   <p>Вы можете найти обзор всех доступных функций в различных разделах ниже, но стоит отметить, что некоторые из этих функций требуют установки и использования различных матриц, поэтому вы можете обратиться к разделу руководства
-    для <a href="../../Maths_And_Numbers/Matrix_Functions/Matrix_Functions.htm">матричных функций</a>. Также обратите внимание, что есть несколько функций помещений, которые можно использовать для получения и установки камер и значений портов просмотра в помещениях, отличных от текущего (см.<span> раздел</span> " <a href="../../Asset_Management/Rooms/Rooms.htm">Помещения</a>").</p>
-  <p><a name="camera_general"></a></p>
+    для <a href="../../Maths_And_Numbers/Matrix_Functions/Matrix_Functions.htm">матричных функций</a>. Также обратите внимание, что есть несколько функций помещений, которые можно использовать для получения и установки камер и значений портов просмотра в помещениях, отличных от текущего (см.<span> раздел</span> &quot; <a href="../../Asset_Management/Rooms/Rooms.htm">Помещения</a>&quot;).</p>
+  <p><a id="camera_general"></a></p>
   <p>Для создания и уничтожения камер можно использовать следующие функции:</p>
   <p> </p>
   <ul class="colour">
@@ -135,5 +135,5 @@ Cameras And Viewports
   <!-- TAGS
 camera_functions
 -->
-</body>
-</html>
+
+</body></html>

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="2020.5.0">
+<project version="2019.0.4">
 <title>GMS2 Manual</title>
-<id>ed49fdaf-a158-4f0a-bdc8-7b5026ece5f2</id>
 <preferences>
-<language>en_US</language>
+<language>ru_RU</language>
 <noInlineStyle>false</noInlineStyle>
-<advancedHtmlHelpOptions>false</advancedHtmlHelpOptions>
 <defaultCss>contents/assets/css/default.css</defaultCss>
 <defaultWsf>settings/import/word/default.wsf</defaultWsf>
 <defaultFsf>settings/import/fm/default.fsf</defaultFsf></preferences>
@@ -38,9 +36,6 @@
 <color name="Teal" value="#008080"></color>
 <color name="Silver" value="#C0C0C0"></color></colors>
 <links></links>
-<scripts></scripts>
-<authortabs></authortabs>
-<outputtabs></outputtabs>
 <content root="contents/"></content>
 <toc root="toc"></toc>
 <snippets root="contents/assets/snippets"></snippets>
@@ -48,5 +43,4 @@
 <index root="index"></index>
 <seealso root="seealso"></seealso>
 <variable root="variable"></variable>
-<condition root="condition"></condition>
-<microcontent root="contents/microcontent"></microcontent></project>
+<condition root="condition"></condition></project>
